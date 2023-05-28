@@ -841,13 +841,36 @@ main {
   position: relative;
 }
 
+.timeline-work-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.timeline-work-text {
+  display: flex;
+  align-items: baseline;
+}
+
 .timeline-item:not(:last-child) {
   margin-bottom: 20px;
 }
 
 .timeline-item-title {
   line-height: 1.3;
+}
+
+.timeline-item-title-edu {
+  line-height: 1.3;
   margin-bottom: 4px;
+}
+
+.timeline-item-position {
+  color: var(--light-gray);
+  font-size: var(--fs-8);
+  font-weight: var(--fw-300);
+  margin-left: 12px;
+  line-height: 1.3;
 }
 
 .timeline-list span {
