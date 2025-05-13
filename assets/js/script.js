@@ -93,13 +93,13 @@ const projectList = document.querySelector(".project-list");
 
 const projects = [
   {
-    category: "web",
-    link: "https://github.com/jonipark/HackDartmouth-todil",
-    image: "./assets/images/projects/project-todil.png",
-    alt: "Todil",
-    title: "Todil",
-    skills: "React.js",
-    desc: "Website that allows users to log daily learnings and track their growth over time",
+    category: "ai",
+    link: "https://github.com/jonipark/ReactGmailGPT",
+    image: "./assets/images/projects/project-joni-gmail-gpt.png",
+    alt: "GmailGPT",
+    title: "GmailGPT",
+    skills: "GPT API, Chrome Storage API, React",
+    desc: "Chrome extension that integrates GPT API into Gmail",
   },
   {
     category: "game",
@@ -109,6 +109,24 @@ const projects = [
     title: "Stardew Mine",
     skills: "GaFr, Java",
     desc: "Grid-based mining game with Minecraft-like crafting and gathering gems",
+  },
+  {
+    category: "others",
+    link: "https://github.com/jonipark/AutoInsight",
+    image: "./assets/images/projects/project-auto-insight.png",
+    alt: "AutoInsight",
+    title: "AutoInsight",
+    skills: "Unity, VR SDKs",
+    desc: "A VR showroom for intuitive car model and option comparison",
+  },
+  {
+    category: "web",
+    link: "https://github.com/jonipark/HackDartmouth-todil",
+    image: "./assets/images/projects/project-todil.png",
+    alt: "Todil",
+    title: "Todil",
+    skills: "React.js",
+    desc: "Website that allows users to log daily learnings and track their growth over time",
   },
   {
     category: "android",
@@ -129,15 +147,6 @@ const projects = [
     desc: "Smart mirror that displays curated user information",
   },
   {
-    category: "web",
-    link: "https://github.com/jonipark/MLFQ-simulator",
-    image: "./assets/images/projects/project-mlfq-simulator.png",
-    alt: "MLFQ Simulator",
-    title: "MLFQ Simulator",
-    skills: "Next.js, Redux, Tailwind CSS",
-    desc: "Web-based MLFQ scheduling simulator for Operating Systems",
-  },
-  {
     category: "game",
     link: "https://github.com/jonipark/voyager-journey",
     image: "./assets/images/projects/project-voyager-journey.png",
@@ -145,6 +154,15 @@ const projects = [
     title: "Voyager Journey",
     skills: "GaFr, Java",
     desc: "2D space game where a player controls Voyager spacecraft with two orbiting soldiers",
+  },
+  {
+    category: "ios",
+    link: "https://github.com/jonipark/SingSangSong",
+    image: "./assets/images/projects/project-sing-sang-song.png",
+    alt: "SingSangSong",
+    title: "SingSangSong",
+    skills: "Swift, Realm",
+    desc: "Memo app for my go-to karaoke songs",
   },
   {
     category: "ios",
@@ -184,6 +202,15 @@ const projects = [
     desc: "App that allows users to browse movies from the The Movie Database API",
   },
   {
+    category: "web",
+    link: "https://github.com/jonipark/MLFQ-simulator",
+    image: "./assets/images/projects/project-mlfq-simulator.png",
+    alt: "MLFQ Simulator",
+    title: "MLFQ Simulator",
+    skills: "Next.js, Redux, Tailwind CSS",
+    desc: "Web-based MLFQ scheduling simulator for Operating Systems",
+  },
+  {
     category: "others",
     link: "https://github.com/jonipark/ComputerGraphics",
     image: "./assets/images/projects/project-car-wheels.png",
@@ -211,6 +238,15 @@ const projects = [
     desc: "Essential Wi-Fi network details in one place",
   },
   {
+    category: "ai",
+    link: "https://github.com/jonipark/JoniGPT",
+    image: "./assets/images/projects/project-joni-gpt.png",
+    alt: "JoniGPT",
+    title: "JoniGPT",
+    skills: "GPT-3, Next.js",
+    desc: "Website that allows users to chat with a GPT-3 model",
+  },
+  {
     category: "android",
     //TODO: update github link
     link: "#",
@@ -229,15 +265,6 @@ const projects = [
     title: "MyWallet",
     skills: "Kotlin",
     desc: "Android app for ledger management",
-  },
-  {
-    category: "ios",
-    link: "https://github.com/jonipark/SingSangSong",
-    image: "./assets/images/projects/project-sing-sang-song.png",
-    alt: "SingSangSong",
-    title: "SingSangSong",
-    skills: "Swift, Realm",
-    desc: "Memo app for my go-to karaoke songs",
   },
   {
     category: "android",
@@ -285,15 +312,6 @@ const projects = [
     title: "CS Society",
     skills: "React.js",
     desc: "Informative website for school CS organization",
-  },
-  {
-    category: "web",
-    link: "https://github.com/jonipark/JoniGPT",
-    image: "./assets/images/projects/project-joni-gpt.png",
-    alt: "JoniGPT",
-    title: "JoniGPT",
-    skills: "GPT-3, Next.js",
-    desc: "Website that allows users to chat with a GPT-3 model",
   },
   {
     category: "game",
