@@ -383,7 +383,7 @@ const blogList = document.querySelector(".blog-posts-list");
 
 const blogPosts = [
   {
-    link: "hhttps://zeepada.ghost.io/ghost/#/editor/post/6827d6645405e20001bcbaf0",
+    link: "https://zeepada.ghost.io/ghost/#/editor/post/6827d6645405e20001bcbaf0",
     image: "./assets/images/blog-smartmirror.jpg",
     alt: "Crafting Smart Mirror",
     category: "Raspberry Pi",
