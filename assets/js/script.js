@@ -393,7 +393,7 @@ const blogPosts = [
   },
   {
     link: "https://zeepada.ghost.io/meta-ray-ban-display-glasses-review/",
-    image: "./assets/images/blog-rayban.jpg",
+    image: "./assets/images/blog-rayban-glasses.jpg",
     alt: "Meta Ray-Ban Display Glasses Review",
     category: "AR Glasses",
     date: "2025-10-07",
