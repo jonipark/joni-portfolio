@@ -383,13 +383,22 @@ const blogList = document.querySelector(".blog-posts-list");
 
 const blogPosts = [
   {
-    link: "https://medium.com/@zeepada/part-2-build-our-own-magic-mirror-module-mmm-asl-903418edc3e5",
+    link: "hhttps://zeepada.ghost.io/ghost/#/editor/post/6827d6645405e20001bcbaf0",
     image: "./assets/images/blog-smartmirror.jpg",
     alt: "Crafting Smart Mirror",
     category: "Raspberry Pi",
     date: "2023-01-16",
     title: "Crafting Smart Mirror",
     desc: "How I crafted a personalized smart mirror using a Raspberry Pi and a JavaScript module for sign language learning.",
+  },
+  {
+    link: "https://zeepada.ghost.io/meta-ray-ban-display-glasses-review/",
+    image: "./assets/images/blog-rayban.jpg",
+    alt: "Meta Ray-Ban Display Glasses Review",
+    category: "AR Glasses",
+    date: "2025-10-07",
+    title: "Meta Ray-Ban Display Glasses Review",
+    desc: "A review of the Meta Ray-Ban Display Glasses",
   },
   // more blog posts here...
 ];
