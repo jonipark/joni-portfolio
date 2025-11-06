@@ -392,8 +392,8 @@ const blogPosts = [
     desc: "How I crafted a personalized smart mirror using a Raspberry Pi and a JavaScript module for sign language learning.",
   },
   {
-    link: "https://zeepada.ghost.io/meta-ray-ban-display-glasses-review",
-    image: "./assets/images/blog-smartmirror.jpg",
+    link: "https://zeepada.ghost.io/meta-ray-ban-display-glasses-review/",
+    image: "./assets/images/blog-rayban.jpg",
     alt: "Meta Ray-Ban Display Glasses Review",
     category: "AR Glasses",
     date: "2025-10-07",
