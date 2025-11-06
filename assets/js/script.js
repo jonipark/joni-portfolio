@@ -93,6 +93,33 @@ const projectList = document.querySelector(".project-list");
 
 const projects = [
   {
+    category: "ar/vr",
+    link: "https://github.com/jonipark/Coggiri",
+    image: "./assets/images/projects/project-coggiri.png",
+    alt: "Coggiri",
+    title: "Coggiri",
+    skills: "SwiftUI, RealityKit, VisionOS",
+    desc: "An interactive Vision Pro game designed to enhance cognitive skills for seniors through 3D fruit-grabbing in mixed reality",
+  },
+  {
+    category: "ar/vr",
+    link: "https://github.com/jonipark/unity-gamgak",
+    image: "./assets/images/projects/project-gamgak.png",
+    alt: "Gamgak",
+    title: "Gamgak",
+    skills: "Unity, VR SDKs",
+    desc: "A seamless MR project bridging technology and art for an enhanced museum experience",
+  },
+  {
+    category: "ar/vr",
+    link: "https://github.com/jonipark/AutoInsight",
+    image: "./assets/images/projects/project-auto-insight.png",
+    alt: "AutoInsight",
+    title: "AutoInsight",
+    skills: "Unity, VR SDKs",
+    desc: "A VR showroom for intuitive car model and option comparison",
+  },
+  {
     category: "ai",
     link: "https://github.com/jonipark/ReactGmailGPT",
     image: "./assets/images/projects/project-joni-gmail-gpt.png",
@@ -109,15 +136,6 @@ const projects = [
     title: "Stardew Mine",
     skills: "GaFr, Java",
     desc: "Grid-based mining game with Minecraft-like crafting and gathering gems",
-  },
-  {
-    category: "others",
-    link: "https://github.com/jonipark/AutoInsight",
-    image: "./assets/images/projects/project-auto-insight.png",
-    alt: "AutoInsight",
-    title: "AutoInsight",
-    skills: "Unity, VR SDKs",
-    desc: "A VR showroom for intuitive car model and option comparison",
   },
   {
     category: "web",
@@ -138,7 +156,7 @@ const projects = [
     desc: "Android app that empowers startup builders to post their projects and receive feedback",
   },
   {
-    category: "others",
+    category: "crafting",
     link: "https://medium.com/@zeepada/part-2-build-our-own-magic-mirror-module-mmm-asl-903418edc3e5",
     image: "./assets/images/projects/project-marron-mirror.png",
     alt: "Marron Mirror",
@@ -211,7 +229,7 @@ const projects = [
     desc: "Web-based MLFQ scheduling simulator for Operating Systems",
   },
   {
-    category: "others",
+    category: "ar/vr",
     link: "https://github.com/jonipark/ComputerGraphics",
     image: "./assets/images/projects/project-car-wheels.png",
     alt: "Car and Wheels",
