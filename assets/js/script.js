@@ -383,7 +383,7 @@ const blogList = document.querySelector(".blog-posts-list");
 
 const blogPosts = [
   {
-    link: "https://zeepada.ghost.io/ghost/#/editor/post/6827d6645405e20001bcbaf0",
+    link: "https://zeepada.ghost.io/how-to-build-magic-mirror-with-raspberry-piwe-use-the-same-old-mirrors-every-day-when-we-brush-our-teeth-wash-our-faces-or-get-ready-to-go-out-can-it-make-it-so-that-something-more-inte/",
     image: "./assets/images/blog-smartmirror.jpg",
     alt: "Crafting Smart Mirror",
     category: "Raspberry Pi",
