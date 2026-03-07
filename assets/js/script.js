@@ -37,10 +37,10 @@ for (let i = 0; i < testimonialsItem.length; i++) {
     modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
     modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
     modalTitle.innerHTML = this.querySelector(
-      "[data-testimonials-title]"
+      "[data-testimonials-title]",
     ).innerHTML;
     modalText.innerHTML = this.querySelector(
-      "[data-testimonials-text]"
+      "[data-testimonials-text]",
     ).innerHTML;
 
     testimonialsModalFunc();
@@ -157,7 +157,7 @@ const projects = [
   },
   {
     category: "crafting",
-    link: "https://medium.com/@zeepada/part-2-build-our-own-magic-mirror-module-mmm-asl-903418edc3e5",
+    link: "https://zeepada.ghost.io/how-to-build-magic-mirror-with-raspberry-piwe-use-the-same-old-mirrors-every-day-when-we-brush-our-teeth-wash-our-faces-or-get-ready-to-go-out-can-it-make-it-so-that-something-more-inte/",
     image: "./assets/images/projects/project-marron-mirror.png",
     alt: "Marron Mirror",
     title: "Marron Mirror",
@@ -350,7 +350,7 @@ projects.forEach((project) => {
     project.alt,
     project.title,
     project.skills,
-    project.desc
+    project.desc,
   );
 });
 
@@ -367,9 +367,9 @@ function createBlogItem(category, link, image, alt, date, title, desc) {
             <p class="blog-category">${category}</p>
             <span class="dot"></span>
             <time datetime="${date}">${new Date(date).toLocaleDateString(
-    "en-US",
-    { year: "numeric", month: "long", day: "numeric" }
-  )}</time>
+              "en-US",
+              { year: "numeric", month: "long", day: "numeric" },
+            )}</time>
           </div>
           <h3 class="h3 blog-item-title">${title}</h3>
           <p class="blog-text">${desc}</p>
@@ -411,7 +411,7 @@ blogPosts.forEach((blogPost) => {
     blogPost.alt,
     blogPost.date,
     blogPost.title,
-    blogPost.desc
+    blogPost.desc,
   );
 });
 
