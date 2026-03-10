@@ -2,636 +2,131 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joni Park</title>
 
-    <!--
-    - favicon
-  -->
-    <link
-      rel="shortcut icon"
-      href="./assets/images/logo.ico"
-      type="image/x-icon"
-    />
-
-    <!--
-    - custom css link
-  -->
+    <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 
-    <!--
-    - google font link
-  -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
       rel="stylesheet"
     />
   </head>
 
   <body>
-    <!--
-    - #MAIN
-  -->
+    <!-- Ambient background orbs -->
+    <div class="ambient-bg" aria-hidden="true">
+      <div class="ambient-orb"></div>
+      <div class="ambient-orb"></div>
+      <div class="ambient-orb"></div>
+    </div>
 
-    <main>
-      <!--
-      - #SIDEBAR
-    -->
+    <!-- Noise texture -->
+    <div class="noise-overlay" aria-hidden="true"></div>
 
-      <aside class="sidebar" data-sidebar>
-        <div class="sidebar-info">
-          <figure class="avatar-box">
-            <img
-              src="./assets/images/joni-bg-black.gif"
-              alt="Joni Park"
-              width="80"
-            />
-          </figure>
+    <!-- Cursor glow -->
+    <div class="cursor-glow" aria-hidden="true"></div>
 
-          <div class="info-content">
-            <h1 class="name" title="Joni Park">Joni Park</h1>
+    <div class="site-wrapper">
+      <!-- ======================== ABOUT ======================== -->
+      <section id="about" class="section active">
+        <div class="container">
+          <div class="about-hero">
+            <h1 class="about-greeting stagger-in">Hi, I'm Joni</h1>
+            <p class="about-subtitle stagger-in">Software Engineer & Explorer</p>
+            <div class="about-bio stagger-in">
+              <p>
+                I'm a software engineer working on app development with SwiftUI,
+                though I enjoy exploring whatever technologies help bring ideas to life.
+              </p>
+              <p>
+                I'm especially interested in
+                <span class="hobby-keyword" data-image="">spatial computing</span>,
+                <span class="hobby-keyword" data-image="">computer vision</span>,
+                <span class="hobby-keyword" data-image="">AI agents</span>, and the
+                future of computing beyond the smartphone.
+              </p>
+              <p>
+                I care deeply about thoughtful UX and building things that genuinely
+                improve people's everyday lives.
+              </p>
+              <p>
+                Outside of work, I enjoy
+                <span class="hobby-keyword" data-image="">photography</span>,
+                exploring
+                <span class="hobby-keyword" data-image="">interior design and architecture</span>,
+                and playing
+                <span class="hobby-keyword" data-image="">board games</span>.
+              </p>
+            </div>
 
-            <p class="title">Software Engineer</p>
+            <div class="about-social stagger-in">
+              <a href="https://github.com/jonipark" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/joeun-park/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="https://devpost.com/joeun" target="_blank" rel="noopener" class="social-link" aria-label="Devpost">
+                <svg viewBox="0 0 24 24"><path d="M6.002 1.61L0 12.004 6.002 22.39h11.996L24 12.004 17.998 1.61zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31 0 4.436-3.21 6.302-6.456 6.302H7.595zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861.009-2.569-1.096-3.853-3.783-3.853z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================== PROJECTS ======================== -->
+      <section id="projects" class="section">
+        <div class="container">
+          <p class="section-label">Portfolio</p>
+          <h2 class="section-title">Projects</h2>
+          <div id="filter-bar"></div>
+          <div id="project-grid" class="project-grid"></div>
+        </div>
+      </section>
+
+      <!-- ======================== BLOG ======================== -->
+      <section id="blog" class="section">
+        <div class="container">
+          <p class="section-label">Writing</p>
+          <h2 class="section-title">Blog</h2>
+          <div id="blog-list" class="blog-list"></div>
+        </div>
+      </section>
+
+      <!-- ======================== EXPERIENCE ======================== -->
+      <section id="experience" class="section">
+        <div class="container">
+          <p class="section-label">Background</p>
+          <h2 class="section-title">Experience</h2>
+
+          <div class="experience-group">
+            <h3 class="experience-group-title">Work</h3>
+            <div id="work-timeline" class="timeline"></div>
           </div>
 
-          <button class="info_more-btn" data-sidebar-btn>
-            <span>Show Contacts</span>
-
-            <ion-icon name="chevron-down"></ion-icon>
-          </button>
-        </div>
-
-        <div class="sidebar-info_more">
-          <div class="separator"></div>
-
-          <ul class="contacts-list">
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="mail-outline"></ion-icon>
-              </div>
-
-              <div class="contact-info">
-                <p class="contact-title">Email</p>
-
-                <a href="mailto:park49j@mtholyoke.edu" class="contact-link"
-                  >zeepada0623@gmail.com</a
-                >
-              </div>
-            </li>
-
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="location-outline"></ion-icon>
-              </div>
-
-              <div class="contact-info">
-                <p class="contact-title">Location</p>
-
-                <address>Cupertino, CA</address>
-              </div>
-            </li>
-          </ul>
-
-          <div class="separator"></div>
-
-          <ul class="social-list">
-            <li class="social-item">
-              <a
-                target="_blank"
-                href="https://github.com/jonipark"
-                class="social-link"
-              >
-                <ion-icon name="logo-github"></ion-icon>
-              </a>
-            </li>
-
-            <li class="social-item">
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/joeun-park/"
-                class="social-link"
-              >
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-            </li>
-
-            <li class="social-item">
-              <a
-                target="_blank"
-                href="https://devpost.com/joeun"
-                class="social-link"
-              >
-                <ion-icon name="planet"></ion-icon>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </aside>
-
-      <!--
-      - #main-content
-    -->
-
-      <div class="main-content">
-        <!--
-        - #NAVBAR
-      -->
-
-        <nav class="navbar">
-          <ul class="navbar-list">
-            <li class="navbar-item">
-              <button class="navbar-link active" data-nav-link>About</button>
-            </li>
-
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Experience</button>
-            </li>
-
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Projects</button>
-            </li>
-
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Blog</button>
-            </li>
-          </ul>
-        </nav>
-
-        <!--
-        - #ABOUT
-      -->
-
-        <article class="about active" data-page="about">
-          <header>
-            <h2 class="h2 article-title">About me</h2>
-          </header>
-
-          <section class="about-text">
-            <p>Hi, my name is Joni 👋</p>
-            <p>
-              I’m a software engineer specializing in Mobile and Front-end. I
-              love exploring and learning new technologies and products. I have
-              a strong interest and currently learning AR/VR, computer vision,
-              and generative AI!
-            </p>
-
-            <p>
-              My career mission is to leverage technology to address disparities
-              in information and resource access. I'm committed to utilizing
-              innovative solutions to increase productivity, improve
-              connectivity, and enhance resourcefulness worldwide.
-            </p>
-          </section>
-
-          <!--
-          - service
-        -->
-
-          <section class="service">
-            <h3 class="h3 service-title">What i'm doing</h3>
-
-            <ul class="service-list">
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="./assets/images/icon-app.svg"
-                    alt="mobile app icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Mobile Application</h4>
-
-                  <p class="service-item-text">
-                    Develop mobile applications both in Native and Hybrid with
-                    Swift, Kotlin, and React Native. Mainly SwiftUI!
-                  </p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="./assets/images/icon-photo.svg"
-                    alt="Web development icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">AR/VR</h4>
-
-                  <p class="service-item-text">
-                    Exploring Apple's ARKit and RealityKit and Unity
-                  </p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="./assets/images/icon-dev.svg
-                "
-                    alt="design icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Web Frontend</h4>
-
-                  <p class="service-item-text">
-                    Seamless frontend development with React.JS, Next.JS,
-                    GraphQL
-                  </p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="./assets/images/icon-design.svg"
-                    alt="camera icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Game Development</h4>
-
-                  <p class="service-item-text">
-                    Have made fun games with Java, Kotlin, and Unity
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          <!--
-          - testimonials modal? 
-          TODO: Remove
-        -->
-          <div class="modal-container" data-modal-container>
-            <div class="overlay" data-overlay></div>
-
-            <section class="testimonials-modal">
-              <button class="modal-close-btn" data-modal-close-btn>
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-            </section>
+          <div class="experience-group">
+            <h3 class="experience-group-title">Education</h3>
+            <div id="edu-timeline" class="timeline"></div>
           </div>
+        </div>
+      </section>
+    </div>
 
-          <!--
-          - TODO: skills
-        -->
-
-          <!-- <section class="skills">
-            <h3 class="h3 clients-title">Skills</h3>
-          </section> -->
-        </article>
-
-        <!--
-        - #Experience
-      -->
-
-        <article class="experience" data-page="experience">
-          <header>
-            <h2 class="h2 article-title">Experience</h2>
-          </header>
-
-          <section class="timeline">
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="book-outline"></ion-icon>
-              </div>
-
-              <h3 class="h3">Work</h3>
-            </div>
-
-            <ol class="timeline-list">
-              <li class="timeline-item">
-                <div class="timeline-work-container">
-                  <a href="https://www.apple.com/" target="_blank">
-                    <img
-                      src="./assets/images/company/logo-apple.png"
-                      alt="mobile app icon"
-                      width="24"
-                      style="margin-right: 6px; border-radius: 4px"
-                  /></a>
-                  <div class="timeline-work-text">
-                    <a href="https://www.apple.com/" target="_blank">
-                      <h4 class="h4 timeline-item-title">Apple</h4></a
-                    >
-                    <p class="timeline-item-position">Software Engineer</p>
-                  </div>
-                </div>
-
-                <span>September 2023 — Present</span>
-
-                <p class="timeline-text">
-                  Building internal iOS tool | Swift, Python
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <div class="timeline-work-container">
-                  <a href="https://www.outrider.ai/" target="_blank">
-                    <img
-                      src="./assets/images/company/logo-outrider.png"
-                      alt="mobile app icon"
-                      width="24"
-                      style="margin-right: 6px; border-radius: 4px"
-                  /></a>
-                  <div class="timeline-work-text">
-                    <a href="https://www.outrider.ai/" target="_blank">
-                      <h4 class="h4 timeline-item-title">Outrider</h4></a
-                    >
-                    <p class="timeline-item-position">
-                      Software Engineer, Cloud Applications Intern
-                    </p>
-                  </div>
-                </div>
-
-                <span>June 2023 — September 2023</span>
-
-                <p class="timeline-text">
-                  Full-stack internal tool for autonomous vehicle test
-                  operations | Next.js, TypeScript, Node.js, Jest
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <div class="timeline-work-container">
-                  <a href="https://fellowship.mlh.io" target="_blank">
-                    <img
-                      src="./assets/images/company/logo-mlh.png"
-                      alt="mobile app icon"
-                      width="24"
-                      style="margin-right: 6px; border-radius: 4px"
-                  /></a>
-                  <div class="timeline-work-text">
-                    <a href="https://fellowship.mlh.io/" target="_blank">
-                      <h4 class="h4 timeline-item-title">MLH</h4></a
-                    >
-                    <p class="timeline-item-position">
-                      Meta Production Engineer Fellow
-                    </p>
-                  </div>
-                </div>
-
-                <span>June 2023 — September 2023</span>
-
-                <p class="timeline-text">
-                  Devops fellowship program with Meta | Python, Flask, MySQL,
-                  Docker, CI/CD, Grafana
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <div class="timeline-work-container">
-                  <a href="https://www.brex.com/" target="_blank">
-                    <img
-                      src="./assets/images/company/logo-brex.png"
-                      alt="mobile app icon"
-                      width="24"
-                      style="margin-right: 6px; border-radius: 4px"
-                  /></a>
-                  <div class="timeline-work-text">
-                    <a href="https://www.brex.com/" target="_blank">
-                      <h4 class="h4 timeline-item-title">Brex</h4></a
-                    >
-                    <p class="timeline-item-position">
-                      Software Engineer Intern
-                    </p>
-                  </div>
-                </div>
-
-                <span>May 2022 — Aug 2022</span>
-
-                <p class="timeline-text">
-                  Mobile Policy Validation | React Native, TypeScript,
-                  GraphQL<br />
-                  Globalized state property of addresses in internal tool | SQL,
-                  Retool
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <div class="timeline-work-container">
-                  <a
-                    href="https://www.ringleplus.com/en/student/landing/home"
-                    target="_blank"
-                  >
-                    <img
-                      src="./assets/images/company/logo-ringle.png"
-                      alt="mobile app icon"
-                      width="24"
-                      style="margin-right: 6px; border-radius: 4px"
-                  /></a>
-                  <div class="timeline-work-text">
-                    <a
-                      href="https://www.ringleplus.com/en/student/landing/home"
-                      target="_blank"
-                    >
-                      <h4 class="h4 timeline-item-title">Ringle</h4></a
-                    >
-                    <p class="timeline-item-position">
-                      Technical Product Manager Intern
-                    </p>
-                  </div>
-                </div>
-
-                <span>Apr 2020 - Mar 2021</span>
-
-                <p class="timeline-text">
-                  Slackbot metric tracking automation | Ruby, SQLite
-                  <br />Improved user retention with analytics page and UX
-                  enhancements | JavaScript, SQL
-                </p>
-              </li>
-            </ol>
-          </section>
-
-          <section class="timeline">
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="book-outline"></ion-icon>
-              </div>
-
-              <h3 class="h3">Education</h3>
-            </div>
-
-            <ol class="timeline-list">
-              <li class="timeline-item">
-                <a href="https://www.mtholyoke.edu/" target="_blank">
-                  <h4 class="h4 timeline-item-title-edu">
-                    Mount Holyoke College
-                  </h4></a
-                >
-                <span>Class of 2023</span>
-
-                <p class="timeline-text">
-                  Bachelor of Arts in Computer Science, GPA: 3.86<br />
-                  · Chair of the Website team for
-                  <i>Computer Science Society(CS Student Organization)</i><br />
-                  · Teaching Assistant for <i>Intro to Computing Systems</i> and
-                  <i>Discrete Mathematics</i><br />
-                  · Peer Mentor for <i>Intro to Computer Science</i>
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <a href="https://www.ait-budapest.com/" target="_blank">
-                  <h4 class="h4 timeline-item-title-edu">AIT-Budapest</h4></a
-                >
-                <span>2022</span>
-
-                <p class="timeline-text">
-                  Computer Science Study Abroad Program in Budapest, Hungary
-                </p>
-              </li>
-            </ol>
-          </section>
-        </article>
-
-        <!--
-        - #PROJECTS
-      -->
-
-        <article class="projects" data-page="projects">
-          <header>
-            <h2 class="h2 article-title">Projects</h2>
-          </header>
-
-          <section class="project">
-            <ul class="filter-list">
-              <li class="filter-item">
-                <button class="active" data-filter-btn>All</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>AR/VR</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>Crafting</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>AI</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>iOS</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>MacOS</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>Game</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>Android</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>Web</button>
-              </li>
-            </ul>
-
-            <div class="filter-select-box">
-              <button class="filter-select" data-select>
-                <div class="select-value" data-selecct-value>
-                  Select category
-                </div>
-
-                <div class="select-icon">
-                  <ion-icon name="chevron-down"></ion-icon>
-                </div>
-              </button>
-
-              <ul class="select-list">
-                <li class="select-item">
-                  <button data-select-item>All</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-btn>AR/VR</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-btn>Crafting</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-btn>AI</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-btn>iOS</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-btn>MacOS</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-btn>Game</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-btn>Android</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-btn>Web</button>
-                </li>
-              </ul>
-            </div>
-
-            <!-- PROJECT LIST -->
-            <ul class="project-list"></ul>
-          </section>
-        </article>
-
-        <!--
-        - #BLOG
-      -->
-
-        <article class="blog" data-page="blog">
-          <header>
-            <h2 class="h2 article-title">Blog</h2>
-          </header>
-
-          <section class="blog-posts">
-            <ul class="blog-posts-list"></ul>
-          </section>
-        </article>
+    <!-- ======================== BOTTOM NAV ======================== -->
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <div class="nav-bar">
+        <div class="nav-indicator"></div>
+        <button class="nav-btn active" data-section="about">About</button>
+        <button class="nav-btn" data-section="projects">Projects</button>
+        <button class="nav-btn" data-section="blog">Blog</button>
+        <button class="nav-btn" data-section="experience">Experience</button>
       </div>
-    </main>
+    </nav>
 
-    <!--
-    - custom js link
-  -->
-    <script src="./assets/js/script.js"></script>
-
-    <!--
-    - ionicon link
-  -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+    <script type="module" src="./assets/js/app.js"></script>
   </body>
 </html>
