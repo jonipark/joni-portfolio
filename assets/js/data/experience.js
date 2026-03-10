@@ -6,7 +6,9 @@ const experience = {
       logo: "./assets/images/company/logo-apple.png",
       role: "Software Engineer",
       date: "September 2023 — Present",
-      description: "Building native tools | Swift, Python",
+      description: [
+        "Building native tools | Swift, Python",
+      ],
       tags: ["Swift", "Python", "iOS"],
     },
     {
@@ -15,8 +17,9 @@ const experience = {
       logo: "./assets/images/company/logo-outrider.png",
       role: "Software Engineer, Cloud Applications Intern",
       date: "June 2023 — September 2023",
-      description:
+      description: [
         "Full-stack internal tool for autonomous vehicle test operations | Next.js, TypeScript, Node.js",
+      ],
       tags: ["Next.js", "TypeScript", "Node.js"],
     },
     {
@@ -25,8 +28,9 @@ const experience = {
       logo: "./assets/images/company/logo-mlh.png",
       role: "Meta Production Engineer Fellow",
       date: "June 2023 — September 2023",
-      description:
+      description: [
         "Devops fellowship program with Meta | Python, Flask, MySQL, Docker, CI/CD",
+      ],
       tags: ["Python", "Flask", "Docker"],
     },
     {
@@ -35,8 +39,10 @@ const experience = {
       logo: "./assets/images/company/logo-brex.png",
       role: "Software Engineer Intern",
       date: "May 2022 — Aug 2022",
-      description:
-        "Mobile Policy Validation | React Native, TypeScript, GraphQL. Globalized state property of addresses in internal tool | SQL, Retool",
+      description: [
+        "Mobile Policy Validation | React Native, TypeScript, GraphQL",
+        "Globalized state property of addresses in internal tool | SQL, Retool",
+      ],
       tags: ["React Native", "TypeScript", "GraphQL"],
     },
     {
@@ -45,8 +51,10 @@ const experience = {
       logo: "./assets/images/company/logo-ringle.png",
       role: "Technical Product Manager Intern",
       date: "Apr 2020 — Mar 2021",
-      description:
-        "Slackbot metric tracking automation | Ruby, SQLite. Improved user retention with analytics page and UX enhancements | JavaScript, SQL",
+      description: [
+        "Slackbot metric tracking automation | Ruby, SQLite",
+        "Improved user retention with analytics page and UX enhancements | JavaScript, SQL",
+      ],
       tags: ["Ruby", "JavaScript", "SQL"],
     },
   ],

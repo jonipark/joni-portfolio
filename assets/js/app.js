@@ -172,6 +172,11 @@ function renderBlog() {
 }
 
 // --- Experience ---
+function renderDescription(desc) {
+  const items = Array.isArray(desc) ? desc : [desc];
+  return `<ul class="timeline-desc-list">${items.map((d) => `<li>${d}</li>`).join("")}</ul>`;
+}
+
 function renderExperience() {
   const workTimeline = document.getElementById("work-timeline");
   workTimeline.innerHTML = experience.work
@@ -188,7 +193,7 @@ function renderExperience() {
           <span class="timeline-date">${item.date}</span>
         </div>
         <p class="timeline-role">${item.role}</p>
-        <p class="timeline-desc">${item.description}</p>
+        ${renderDescription(item.description)}
         <div class="timeline-tags">
           ${item.tags.map((t) => `<span class="tag">${t}</span>`).join("")}
         </div>
