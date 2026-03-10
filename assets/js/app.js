@@ -231,19 +231,52 @@ function renderExperience() {
     .join("");
 }
 
-// --- Hobby image hover ---
+// --- Hobby image hover: scattered Polaroid fan ---
+// Supports comma-separated paths in data-image, e.g. "a.jpg,b.jpg,c.jpg"
+// Preset scatter transforms per count (rotation, x-offset, y-offset)
+const scatterPresets = [
+  // 1 image
+  [{ r: -2, x: 0, y: 0 }],
+  // 2 images
+  [{ r: -4, x: -80, y: 4 }, { r: 3, x: 80, y: -2 }],
+  // 3 images
+  [{ r: -5, x: -155, y: 6 }, { r: 1, x: 0, y: -4 }, { r: 4, x: 155, y: 2 }],
+  // 4 images
+  [{ r: -5, x: -230, y: 4 }, { r: -2, x: -76, y: -6 }, { r: 2, x: 76, y: 4 }, { r: 5, x: 230, y: -2 }],
+  // 5 images
+  [{ r: -6, x: -305, y: 4 }, { r: -3, x: -152, y: -6 }, { r: 0, x: 0, y: 2 }, { r: 3, x: 152, y: -4 }, { r: 6, x: 305, y: 4 }],
+];
+
 function initHobbyHovers() {
   document.querySelectorAll(".hobby-keyword").forEach((el) => {
-    const imgSrc = el.dataset.image;
-    if (!imgSrc) return;
+    const raw = el.dataset.image;
+    if (!raw) return;
 
-    const floater = document.createElement("div");
-    floater.className = "hobby-image-float";
-    floater.innerHTML = `<img src="${imgSrc}" alt="${el.textContent}" />`;
-    el.appendChild(floater);
+    const srcs = raw.split(",").map((s) => s.trim()).filter(Boolean);
+    if (srcs.length === 0) return;
 
-    el.addEventListener("mouseenter", () => floater.classList.add("visible"));
-    el.addEventListener("mouseleave", () => floater.classList.remove("visible"));
+    const count = Math.min(srcs.length, 5);
+    const presets = scatterPresets[count - 1];
+
+    const container = document.createElement("div");
+    container.className = "hobby-photos";
+
+    srcs.slice(0, 5).forEach((src, i) => {
+      const p = presets[i];
+      const photo = document.createElement("div");
+      photo.className = "hobby-photo";
+      photo.style.setProperty("--r", p.r + "deg");
+      photo.style.setProperty("--tx", p.x + "px");
+      photo.style.setProperty("--ty", p.y + "px");
+      photo.style.setProperty("--i", i);
+      photo.innerHTML = `<img src="${src}" alt="${el.textContent}" />`;
+      container.appendChild(photo);
+    });
+
+    el.appendChild(container);
+
+    el.addEventListener("mouseenter", () => container.classList.add("visible"));
+    el.addEventListener("mouseleave", () => container.classList.remove("visible"));
   });
 }
 
