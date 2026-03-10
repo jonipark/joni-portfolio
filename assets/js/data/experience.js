@@ -6,7 +6,7 @@ const experience = {
       logo: "./assets/images/company/logo-apple.png",
       role: "Software Engineer",
       date: "September 2023 — Present",
-      description: "Building internal iOS tool | Swift, Python",
+      description: "Building native tools | Swift, Python",
       tags: ["Swift", "Python", "iOS"],
     },
     {
@@ -16,7 +16,7 @@ const experience = {
       role: "Software Engineer, Cloud Applications Intern",
       date: "June 2023 — September 2023",
       description:
-        "Full-stack internal tool for autonomous vehicle test operations | Next.js, TypeScript, Node.js, Jest",
+        "Full-stack internal tool for autonomous vehicle test operations | Next.js, TypeScript, Node.js",
       tags: ["Next.js", "TypeScript", "Node.js"],
     },
     {
@@ -26,7 +26,7 @@ const experience = {
       role: "Meta Production Engineer Fellow",
       date: "June 2023 — September 2023",
       description:
-        "Devops fellowship program with Meta | Python, Flask, MySQL, Docker, CI/CD, Grafana",
+        "Devops fellowship program with Meta | Python, Flask, MySQL, Docker, CI/CD",
       tags: ["Python", "Flask", "Docker"],
     },
     {
@@ -55,8 +55,7 @@ const experience = {
       institution: "Mount Holyoke College",
       url: "https://www.mtholyoke.edu/",
       date: "Class of 2023",
-      description:
-        "Bachelor of Arts in Computer Science, GPA: 3.86",
+      description: "Bachelor of Arts in Computer Science, GPA: 3.86",
       highlights: [
         "Chair of the Website team for Computer Science Society",
         "Teaching Assistant for Intro to Computing Systems and Discrete Mathematics",
@@ -67,8 +66,7 @@ const experience = {
       institution: "AIT-Budapest",
       url: "https://www.ait-budapest.com/",
       date: "2022",
-      description:
-        "Computer Science Study Abroad Program in Budapest, Hungary",
+      description: "Computer Science Study Abroad Program in Budapest, Hungary",
       highlights: [],
     },
   ],
