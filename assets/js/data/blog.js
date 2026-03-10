@@ -11,7 +11,7 @@ const blogPosts = [
   {
     link: "https://zeepada.ghost.io/vr-input/",
     image: "./assets/images/blog-vr-input.webp",
-    category: "VR",
+    category: "XR",
     date: "2025-12-12",
     title: "Half a Revolution: XR Went 3D, But Input Stayed Flat",
     description:
