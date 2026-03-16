@@ -1,43 +1,28 @@
-# vCard - Personal portfolio
+# Joni Park - Personal Portfolio
 
-![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/vcard-personal-portfolio)
-![GitHub stars](https://img.shields.io/github/stars/codewithsadee/vcard-personal-portfolio?style=social)
-![GitHub forks](https://img.shields.io/github/forks/codewithsadee/vcard-personal-portfolio?style=social)
-[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee?style=social)](https://twitter.com/intent/follow?screen_name=codewithsadee)
-[![YouTube Video Views](https://img.shields.io/youtube/views/SoxmIlgf2zM?style=social)](https://youtu.be/SoxmIlgf2zM)
+A personal portfolio website built with HTML, CSS, and JavaScript.
 
-vCard is a fully responsive personal portfolio website, responsive for all devices, built using HTML, CSS, and JavaScript.
+## Running Locally
 
-## Demo
-
-![vCard Desktop Demo](./website-demo-image/desktop.png "Desktop Demo")
-![vCard Mobile Demo](./website-demo-image/mobile.png "Mobile Demo")
-
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
-
-## Installing vCard
-
-To install **vCard**, follow these steps:
-
-Linux and macOS:
+1. Clone the repository:
 
 ```bash
-sudo git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
+git clone https://github.com/jonipark/joni-portfolio.git
+cd joni-portfolio
 ```
 
-Windows:
+2. Start a local server:
 
 ```bash
-git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
+python3 -m http.server 8000
 ```
 
-## Contact
+3. Open http://localhost:8000 in your browser.
 
-If you want to contact me you can reach me at [Twitter](https://www.twitter.com/codewithsadee).
+## Tech Stack
+
+- HTML / CSS / JavaScript
+- Google Fonts (Inter, Playfair Display)
 
 ## License
 

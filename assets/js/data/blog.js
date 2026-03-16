@@ -1,5 +1,14 @@
 const blogPosts = [
   {
+    link: "https://zeepada.ghost.io/sphere-and-cosm/",
+    image: "./assets/images/blog-cosm-sphere.png",
+    category: "SR (Shared Experiences)",
+    date: "2026-03-11",
+    title: "Sphere and Cosm: The New Era of Immersive Experience",
+    description:
+      "Sphere and Cosm prove the demand for immersive display is real and massive. Now the question is how the technology gets into everyday life.",
+  },
+  {
     link: "https://zeepada.ghost.io/ar-glass-as-next-device/",
     image: "./assets/images/blog-ar-glasses.png",
     category: "AR Glasses",
