@@ -130,7 +130,7 @@ function renderCurrentProject() {
   projectCarousel.innerHTML = `
     <a href="${p.link}" target="_blank" rel="noopener" class="project-card" data-category="${p.category}">
       <div class="project-card-img">
-        <img src="${p.image}" alt="${p.title}" loading="lazy" />
+        <img src="${p.image}" alt="${p.title}" />
         <div class="project-card-overlay">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
@@ -187,7 +187,7 @@ function renderPeekCards(direction) {
   const peekHTML = (p) => `
     <div class="peek-card">
       <div class="peek-card-img">
-        <img src="${p.image}" alt="${p.title}" loading="lazy" />
+        <img src="${p.image}" alt="${p.title}" />
       </div>
       <div class="peek-card-body">
         <div class="peek-card-title">${p.title}</div>
@@ -270,7 +270,7 @@ function renderProjectGrid() {
     <a href="${p.link}" target="_blank" rel="noopener"
        class="project-card stagger-in" data-category="${p.category}">
       <div class="project-card-img">
-        <img src="${p.image}" alt="${p.title}" loading="lazy" />
+        <img src="${p.image}" alt="${p.title}" />
         <div class="project-card-overlay">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
@@ -496,6 +496,12 @@ function triggerStagger(sectionId) {
     setTimeout(() => el.classList.add("visible"), 80 + i * 50);
   });
 }
+
+// --- Preload all project images ---
+projects.forEach((p) => {
+  const img = new Image();
+  img.src = p.image;
+});
 
 // --- Init ---
 renderProjects();
