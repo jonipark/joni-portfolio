@@ -1,5 +1,13 @@
 const blogPosts = [
   {
+    link: "https://zeepada.ghost.io/ar-in-life/",
+    image: "./assets/images/blog-ar-in-life.png",
+    category: "AR Glasses",
+    date: "2026-04-28",
+    title: "AR Won't Begin with the Everyday",
+    description: "Always-on AR is the demo. The AR people actually pay for lives in swim goggles, ski goggles, and delivery glasses.",
+  },
+  {
     link: "https://zeepada.ghost.io/sphere-and-cosm/",
     image: "./assets/images/blog-cosm-sphere.png",
     category: "SR (Shared Experiences)",
@@ -25,14 +33,6 @@ const blogPosts = [
     title: "Half a Revolution: XR Went 3D, But Input Stayed Flat",
     description:
       "XR has revolutionized what we see. But until it reinvents how we type, it's just a monitor strapped to your face.",
-  },
-  {
-    link: "https://zeepada.ghost.io/meta-ray-ban-display-glasses-review/",
-    image: "./assets/images/blog-rayban-glasses.jpg",
-    category: "AR Glasses",
-    date: "2025-10-07",
-    title: "Meta Ray-Ban Display Glasses Review",
-    description: "A review of the Meta Ray-Ban Display Glasses",
   },
   {
     link: "https://zeepada.ghost.io/how-to-build-magic-mirror-with-raspberry-piwe-use-the-same-old-mirrors-every-day-when-we-brush-our-teeth-wash-our-faces-or-get-ready-to-go-out-can-it-make-it-so-that-something-more-inte/",

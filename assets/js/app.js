@@ -17,6 +17,13 @@ function setActiveSection(targetId) {
   sections.forEach((s) => s.classList.toggle("active", s.id === targetId));
   navLinks.forEach((link) => link.classList.toggle("active", link.dataset.section === targetId));
 
+  // Show/hide the fixed filter bar based on active section
+  const filterBar = document.getElementById("filter-bar");
+  const isCardView = cardView && cardView.style.display !== "none";
+  if (filterBar) {
+    filterBar.style.display = (targetId === "projects" && isCardView) ? "" : "none";
+  }
+
   const activeBtn = document.querySelector(`.nav-btn[data-section="${targetId}"]`);
   positionIndicator(activeBtn);
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -63,26 +70,33 @@ if (cursorGlow && window.matchMedia("(pointer: fine)").matches) {
   animateCursor();
 }
 
-// --- Projects ---
-const projectGrid = document.getElementById("project-grid");
-const categories = ["All", ...new Set(projects.map((p) => p.category))];
+// --- Projects (Carousel) ---
+const projectCarousel = document.getElementById("project-carousel");
+const carouselCounter = document.getElementById("carousel-counter");
+const carouselPrev = document.getElementById("carousel-prev");
+const carouselNext = document.getElementById("carousel-next");
+const peekPrev = document.getElementById("carousel-peek-prev");
+const peekNext = document.getElementById("carousel-peek-next");
+
+let currentIndex = 0;
+let filteredProjects = [...projects];
+let activeCategory = "All";
 
 const categoryLabels = {
   "ar/vr": "AR/VR",
-  crafting: "Crafting",
   ai: "AI",
-  ios: "iOS",
-  macos: "MacOS",
   game: "Game",
-  android: "Android",
   web: "Web",
+  crafting: "Crafting",
 };
+
+const displayCategories = ["All", "ar/vr", "ai", "game", "web", "crafting"];
 
 function renderCategoryLabels() {
   const container = document.getElementById("filter-bar");
-  categories.forEach((cat) => {
+  displayCategories.forEach((cat) => {
     const btn = document.createElement("button");
-    btn.className = "filter-btn glass-pill" + (cat === "All" ? " active" : "");
+    btn.className = "filter-btn" + (cat === "All" ? " active" : "");
     btn.dataset.category = cat;
     btn.textContent = cat === "All" ? "All" : categoryLabels[cat] || cat;
     btn.addEventListener("click", () => filterProjects(cat, btn));
@@ -93,46 +107,182 @@ function renderCategoryLabels() {
 function filterProjects(category, activeBtn) {
   document.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
   activeBtn.classList.add("active");
+  activeCategory = category;
 
-  const items = document.querySelectorAll(".project-card");
-  let delay = 0;
-  items.forEach((item) => {
-    const match = category === "All" || item.dataset.category === category;
-    if (match) {
-      item.style.display = "";
-      item.style.animation = "none";
-      item.offsetHeight;
-      item.style.animationDelay = delay * 30 + "ms";
-      item.style.animation = "fadeScale 0.4s var(--ease-out) forwards";
-      delay++;
-    } else {
-      item.style.display = "none";
-    }
-  });
+  if (category === "All") {
+    filteredProjects = [...projects];
+  } else {
+    filteredProjects = projects.filter((p) => p.category === category);
+  }
+
+  currentIndex = 0;
+  renderCurrentProject();
 }
 
-function renderProjects() {
-  renderCategoryLabels();
-  projectGrid.innerHTML = projects
-    .map(
-      (p, i) => `
-    <a href="${p.link}" target="_blank" rel="noopener"
-       class="project-card glass-card stagger-in" data-category="${p.category}" data-tilt>
+function renderCurrentProject() {
+  if (filteredProjects.length === 0) {
+    projectCarousel.innerHTML = `<div style="text-align:center;padding:3rem;color:var(--text-tertiary);">No projects in this category.</div>`;
+    carouselCounter.textContent = "0 of 0";
+    return;
+  }
+
+  const p = filteredProjects[currentIndex];
+  projectCarousel.innerHTML = `
+    <a href="${p.link}" target="_blank" rel="noopener" class="project-card" data-category="${p.category}">
       <div class="project-card-img">
         <img src="${p.image}" alt="${p.title}" loading="lazy" />
         <div class="project-card-overlay">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
             <polyline points="15 3 21 3 21 9"/>
             <line x1="10" y1="14" x2="21" y2="3"/>
           </svg>
+          <span class="overlay-label">VIEW</span>
+          <span class="overlay-sub">Open Link in New Tab</span>
         </div>
       </div>
       <div class="project-card-body">
         <h3 class="project-card-title">${p.title}</h3>
-        <div class="project-card-tags">
-          ${p.tags.map((t) => `<span class="tag">${t}</span>`).join("")}
+        <p class="project-card-desc">${p.description}</p>
+        <span class="project-card-year">${p.year}</span>
+      </div>
+    </a>
+  `;
+
+  carouselCounter.textContent = `${currentIndex + 1} of ${filteredProjects.length}`;
+
+  // Render peek cards
+  const dir = navigateDirection;
+  renderPeekCards(dir);
+  navigateDirection = null;
+
+  // Animate card entrance with AR spatial effect
+  const card = projectCarousel.querySelector(".project-card");
+  if (card) {
+    if (dir === "next") {
+      card.classList.add("anim-next");
+    } else if (dir === "prev") {
+      card.classList.add("anim-prev");
+    } else {
+      card.style.animation = "fadeScale 0.4s var(--ease-out) forwards";
+    }
+  }
+}
+
+let navigateDirection = null;
+
+function renderPeekCards(direction) {
+  const len = filteredProjects.length;
+  if (len <= 1) {
+    peekPrev.innerHTML = "";
+    peekNext.innerHTML = "";
+    return;
+  }
+
+  const prevIdx = (currentIndex - 1 + len) % len;
+  const nextIdx = (currentIndex + 1) % len;
+  const prevP = filteredProjects[prevIdx];
+  const nextP = filteredProjects[nextIdx];
+
+  const peekHTML = (p) => `
+    <div class="peek-card">
+      <div class="peek-card-img">
+        <img src="${p.image}" alt="${p.title}" loading="lazy" />
+      </div>
+      <div class="peek-card-body">
+        <div class="peek-card-title">${p.title}</div>
+        <div class="peek-card-desc">${p.description}</div>
+        <div class="peek-card-year">${p.year}</div>
+      </div>
+    </div>
+  `;
+
+  peekPrev.innerHTML = peekHTML(prevP);
+  peekNext.innerHTML = peekHTML(nextP);
+
+  // Trigger rotate-in animation
+  if (direction) {
+    peekPrev.style.animation = `peekSlideFromLeft 0.5s var(--ease-out) forwards`;
+    peekNext.style.animation = `peekSlideFromRight 0.5s var(--ease-out) forwards`;
+    setTimeout(() => {
+      peekPrev.style.animation = "";
+      peekNext.style.animation = "";
+    }, 550);
+  }
+}
+
+function goToPrev() {
+  if (filteredProjects.length <= 1) return;
+  navigateDirection = "prev";
+  currentIndex = (currentIndex - 1 + filteredProjects.length) % filteredProjects.length;
+  renderCurrentProject();
+}
+
+function goToNext() {
+  if (filteredProjects.length <= 1) return;
+  navigateDirection = "next";
+  currentIndex = (currentIndex + 1) % filteredProjects.length;
+  renderCurrentProject();
+}
+
+peekPrev.addEventListener("click", goToPrev);
+peekNext.addEventListener("click", goToNext);
+carouselPrev.addEventListener("click", goToPrev);
+carouselNext.addEventListener("click", goToNext);
+
+function renderProjects() {
+  renderCategoryLabels();
+  renderCurrentProject();
+  renderGridFilterBar();
+  renderProjectGrid();
+}
+
+// --- Grid view ---
+const projectGrid = document.getElementById("project-grid");
+const cardView = document.getElementById("projects-card-view");
+const gridView = document.getElementById("projects-grid-view");
+const viewCardBtn = document.getElementById("view-card");
+const viewGridBtn = document.getElementById("view-grid");
+let gridCategory = "All";
+
+function renderGridFilterBar() {
+  const container = document.getElementById("filter-bar-grid");
+  displayCategories.forEach((cat) => {
+    const btn = document.createElement("button");
+    btn.className = "filter-btn glass-pill" + (cat === "All" ? " active" : "");
+    btn.dataset.category = cat;
+    btn.textContent = cat === "All" ? "All" : categoryLabels[cat] || cat;
+    btn.addEventListener("click", () => {
+      container.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      gridCategory = cat;
+      renderProjectGrid();
+    });
+    container.appendChild(btn);
+  });
+}
+
+function renderProjectGrid() {
+  const list = gridCategory === "All" ? projects : projects.filter((p) => p.category === gridCategory);
+  projectGrid.innerHTML = list
+    .map(
+      (p) => `
+    <a href="${p.link}" target="_blank" rel="noopener"
+       class="project-card stagger-in" data-category="${p.category}">
+      <div class="project-card-img">
+        <img src="${p.image}" alt="${p.title}" loading="lazy" />
+        <div class="project-card-overlay">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          <span class="overlay-label">VIEW</span>
+          <span class="overlay-sub">Open Link in New Tab</span>
         </div>
+      </div>
+      <div class="project-card-body">
+        <h3 class="project-card-title">${p.title}</h3>
         <p class="project-card-desc">${p.description}</p>
         <span class="project-card-year">${p.year}</span>
       </div>
@@ -140,6 +290,42 @@ function renderProjects() {
   `
     )
     .join("");
+
+  // Stagger in
+  requestAnimationFrame(() => {
+    projectGrid.querySelectorAll(".stagger-in").forEach((el, i) => {
+      setTimeout(() => el.classList.add("visible"), 60 + i * 30);
+    });
+  });
+}
+
+function setView(mode) {
+  if (mode === "card") {
+    cardView.style.display = "";
+    gridView.style.display = "none";
+    viewCardBtn.classList.add("active");
+    viewGridBtn.classList.remove("active");
+    // Show filter bar
+    const filterBar = document.getElementById("filter-bar");
+    if (filterBar) filterBar.style.display = "";
+  } else {
+    cardView.style.display = "none";
+    gridView.style.display = "block";
+    viewCardBtn.classList.remove("active");
+    viewGridBtn.classList.add("active");
+    // Hide vertical filter bar
+    const filterBar = document.getElementById("filter-bar");
+    if (filterBar) filterBar.style.display = "none";
+    renderProjectGrid();
+  }
+}
+
+viewCardBtn.addEventListener("click", () => setView("card"));
+viewGridBtn.addEventListener("click", () => setView("grid"));
+
+// On mobile, default to grid view
+if (window.matchMedia("(max-width: 449px)").matches) {
+  setView("grid");
 }
 
 // --- Blog ---
@@ -318,6 +504,6 @@ renderExperience();
 initHobbyHovers();
 
 requestAnimationFrame(() => {
-  triggerStagger("about");
+  triggerStagger("projects");
   initTiltEffect();
 });
